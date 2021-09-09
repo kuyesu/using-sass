@@ -1,0 +1,40 @@
+// :root{
+//     --primary-color: #272727;
+//     --accent-color: #ff626f;
+//     --text-color: #fff;
+// }
+
+// body{
+//     background: var(--primary-color);
+// }
+@import './resets';
+@import './variables';
+
+@function weigth($weight-name){
+    @return map-get($font-weights, $weight-name);
+}
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+body{
+    background: $primary-color;font-weight: map-get($font-weights, bold );
+    color: $text-color;
+}
+
+.main{
+    @include flexCenter(row);
+    width: 80%;
+    margin: 0 auto;
+
+    #{&}__paragraph {
+        font-weight: weigth(regular);
+        &:hover {
+            color: pink;
+        }
+    }
+}
